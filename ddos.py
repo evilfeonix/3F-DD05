@@ -32,11 +32,12 @@ def slow(F3):
 
 def installation():
    os.system(f"clear || cls")
+   os.system(f"pkg install libffi libcrypt libpcap -y")
+   os.system(f"pip install --upgrade pip")
    os.system(f"pip install scapy")
    os.system(f"pip install faker")
    os.system(f"pip install urllib2")
-   # os.system(f"apt install ruby -y")
-   # os.system(f"gem install lolcat")
+
 
 try:
    import scapy, faker, urllib.request
