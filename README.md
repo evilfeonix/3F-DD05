@@ -1,5 +1,8 @@
 # 3F-DD05
 
+
+![3F-DD05 v1.0](https://github.com/evilfeonix/3F-DD05/blob/main/sam.png)
+
 if you're look for an advanced ddosing tool, 3F-DD05, created by evilfeonix, is your right choice.
 
 Your altimate tool for conducting both UDP flooding and SYN flooding Distributed DOS attack
@@ -62,7 +65,7 @@ A little video that will guide you through out using this tool, click the below 
 ### Wireshack
 Captured packet sent by **3F-DD05** using Wireshack:
 
-![3F-DD05 v1.0](https://github.com/evilfeonix/3F-DD05/blob/main/pcap.jpg)
+![3F-DD05 v1.0](https://github.com/evilfeonix/3F-DD05/blob/main/pcap.png)
 
 
 # Support US 
